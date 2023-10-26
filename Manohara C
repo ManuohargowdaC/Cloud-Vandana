@@ -1,0 +1,29 @@
+// Create an array with the values (1, 2, 3, 4, 5, 6, 7) and shuffle it.
+
+
+
+import java.util.Random;
+
+public class Array_Shuffle {
+    public static void main(String[] args) {
+        int[] originalArray = {1, 2, 3, 4, 5, 6, 7};
+
+        // Create a Random object to generate random indices
+        Random random = new Random();
+
+        // Perform the Fisher-Yates (Knuth) shuffle algorithm
+        for (int i = originalArray.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+
+            // Swap originalArray[i] and originalArray[j]
+            int temp = originalArray[i];
+            originalArray[i] = originalArray[j];
+            originalArray[j] = temp;
+        }
+
+        // Print the shuffled array
+        for (int num : originalArray) {
+            System.out.print(num + " ");
+        }
+    }
+}
